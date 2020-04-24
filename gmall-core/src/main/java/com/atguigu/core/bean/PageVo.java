@@ -44,7 +44,8 @@ public class PageVo implements Serializable {
 	 * 列表数据
 	 */
 	private List<?> list;
-	
+
+
 	/**
 	 * 分页
 	 * @param list        列表数据
@@ -72,5 +73,5 @@ public class PageVo implements Serializable {
 	}
 
 
-	
+
 }
