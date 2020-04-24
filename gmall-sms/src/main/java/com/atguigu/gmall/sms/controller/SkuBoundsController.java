@@ -1,20 +1,18 @@
 package com.atguigu.gmall.sms.controller;
 
-import java.util.Arrays;
-import java.util.Map;
-
-
 import com.atguigu.core.bean.PageVo;
 import com.atguigu.core.bean.QueryCondition;
 import com.atguigu.core.bean.Resp;
+import com.atguigu.gmall.sms.entity.SkuBoundsEntity;
+import com.atguigu.gmall.sms.service.SkuBoundsService;
+import com.atguigu.gmall.sms.vo.SkuSaleVO;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
-import com.atguigu.gmall.sms.entity.SkuBoundsEntity;
-import com.atguigu.gmall.sms.service.SkuBoundsService;
+import java.util.Arrays;
 
 
 
@@ -32,6 +30,14 @@ import com.atguigu.gmall.sms.service.SkuBoundsService;
 public class SkuBoundsController {
     @Autowired
     private SkuBoundsService skuBoundsService;
+
+    @ApiOperation("新增sku的营销信息")
+    @PostMapping("/skusale/save")
+    public Resp<Object> saveSkuSaleInfo(@RequestBody SkuSaleVO skuSaleDTO){
+        this.skuBoundsService.saveSkuSaleInfo(skuSaleDTO);
+
+        return Resp.ok(null);
+    }
 
     /**
      * 列表
